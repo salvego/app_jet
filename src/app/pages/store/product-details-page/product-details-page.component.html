@@ -1,0 +1,17 @@
+<div class="uk-container">
+    <div class="uk-grid uk-margin-small-top">
+      <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+        <div class="uk-card-media-left uk-cover-container">
+          <img src="{{ image! }}" alt="Girl in a jacket" width="1000" height="1000">
+            <canvas width="600" height="400"></canvas>
+        </div>
+        <div>
+            <div class="uk-card-body">
+                <h3 class="uk-card-title">{{ title! }}</h3>
+                <h2 class="uk-card-title">{{ price!/100 | currency: 'BRL' }}</h2>
+                <p>{{ description! }}</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

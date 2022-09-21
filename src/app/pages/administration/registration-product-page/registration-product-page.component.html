@@ -1,0 +1,91 @@
+<div class="uk-container ">
+    <div uk-height-viewport="offset-bottom: 20 ">
+        <form [formGroup]="form" ng-controller="ExampleController" >
+        
+          <div class="uk-padding  uk-child-width-1-3 uk-text-center" uk-grid>
+              
+                <div style="width:48%;text-align:left ">
+                    <div class=" uk-card uk-card-default uk-card-body">
+                      <h2 class="uk-card-title" style="text-align:left">Informações Principais</h2>
+                        
+                        <div  class="switch__container">
+                          <label  for="status" >Status</label>
+                          <input  id="switch-shadow" class="switch switch--shadow" formControlName="status" type="checkbox" ng-model="checkboxModel.value1"
+                          [ngClass]="{'uk-form-danger': (!form.controls['status'].valid && !form.controls['status'].pristine) }">
+                          <label  for="switch-shadow"></label>
+                        </div>
+                         
+                        <div>
+                          <label style="width:48%" for="title">Nome do Produto</label>
+                          <input class="uk-input uk-form-default" formControlName="title" type="text"
+                          [ngClass]="{'uk-form-danger': (!form.controls['title'].valid && !form.controls['title'].pristine) }">
+                        </div>
+                        <div>
+
+                          <div style="width:45%">
+                            <label for="stock">Estoque</label>
+                            <input class="uk-input uk-form-default" formControlName="stock" type="number" 
+                            [ngClass]="{'uk-form-danger': (!form.controls['stock'].valid && !form.controls['stock'].pristine) }">
+                          </div>
+                          
+                          <div style="width:45%">
+                            <label for="price">Preço</label>
+                            <input  class="uk-input uk-form-default" 
+                            formControlName="price" type="number" 
+                            [ngClass]="{'uk-form-danger': (!form.controls['price'].valid && !form.controls['price'].pristine) }">
+                          </div>
+                                                    
+                        </div>
+
+                        <h2 class="uk-card-title" style="text-align:left">Informações Adicionais</h2>
+
+                        <div>
+                          <label for="description">Descrição</label>
+                          <input class="uk-input uk-form-default" formControlName="description" type="text"
+                          [ngClass]="{'uk-form-danger': (!form.controls['description'].valid && !form.controls['description'].pristine) }">
+                        </div>                  
+                    </div>
+                </div>
+                
+                <div style="width:4%">
+                  <hr class="uk-divider-vertical" style="height:100%;border-width:0;color:gray;background-color:gray">
+                </div>
+                
+
+                <div style="width:48%" >
+                    <div style="height:100%" class=" uk-card uk-card-default uk-card-body" >
+                      <h2 class="uk-card-title" style="text-align:left">Foto</h2>
+                        <div >
+                          <input class="uk-input uk-form-default uk-margin" formControlName="image" type="text" placeholder="Colar Endereço da Imagem aqui">
+                          <a class="uk-logo" href="/">
+                            <img src="https://burst.shopifycdn.com/photos/perfect-yellow-flower.jpg?width=1200&format=pjpg&exif=1&iptc=1" alt="Girl in a jacket" width="1000" height="1000">
+                          </a>
+                        </div>
+                    </div>
+                </div>
+                
+        </div>
+          
+        <p class="uk-text-right uk-margin">
+          <a routerLink="/registration-list">
+            <button style="width:10%" class="uk-button uk-button-default uk-margin-small-right" (click)="back()">Cancelar</button>
+          </a>
+          
+          <button class="uk-button uk-button-default" (click)="submit()">Salvar Informações</button>
+        </p> 
+
+        
+         
+        </form>
+
+        <script>
+          angular.module('checkboxExample', [])
+            .controller('ExampleController', ['$scope', function($scope) {
+              $scope.checkboxModel = {
+               value1 : true
+             };
+            }]);
+        </script>
+
+    </div>
+</div>  

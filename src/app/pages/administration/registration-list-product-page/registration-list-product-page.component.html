@@ -1,0 +1,66 @@
+<div class="uk-container" style="width:70%">
+
+    <div class="uk-card uk-card-small uk-card-default">
+        <form [formGroup]="form">
+            <p>
+                <input style="width:50%" class="uk-input uk-form-default" formControlName="filter" type="text"
+                [ngClass]="{'uk-form-danger': (!form.controls['filter'].valid && !form.controls['filter'].pristine) }">
+                
+                <button style="width:30%" class="uk-button uk-button-default" (click)="findProducts()">BUSCAR PRODUTO</button>
+            </p>
+        </form>
+        
+        
+    </div>
+
+
+    <table *ngIf="products$" class="uk-table uk-table-striped" >
+        <thead >
+            <tr >
+                <th style="width:40%" >Nome do Produto</th>
+                <th style="width:20%">Preço</th>
+                <th style="width:10%">Estoque</th>
+                <th style="width:10%">Visível</th>
+                <th style="width:10%"></th>
+                <th style="width:10%"></th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let product of products$ | async">
+            <tr>
+                <td> <img src="{{ product.image }}" width="50" height="50"> {{ product.title }}</td>
+                <td>{{ product.price/100 | currency: 'BRL' }}</td>
+                <td>{{ product.stock }}</td>
+                <td>
+                    <ng-container *ngIf="product.status == true">
+                        <span uk-icon="unlock">
+                        </span>
+                    </ng-container>
+                    <ng-container *ngIf="product.status == undefined">
+                        <span uk-icon="lock">
+                        </span>
+                    </ng-container>
+                    
+                </td>
+                <td>
+                    <a routerLink="/registration/{{product.id}}">
+                        <button class="uk-button uk-button-link" type="button"><span uk-icon="pencil"></span></button>
+                    </a>
+                </td>
+                <td>
+                    <a routerLink="/registration-list">
+                        <button class="uk-button uk-button-link" type="button" (click)="delete(product.id)"><span uk-icon="trash"></span></button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div  class="uk-card uk-card-large uk-card-default uk-text-right">
+        <a [routerLink]="['/registration']">
+            <button style="width:30%" class="uk-button uk-button-default" type="button">CADASTRAR NOVO PRODUTO</button>
+        </a>
+        
+    </div>
+
+</div>

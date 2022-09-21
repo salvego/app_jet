@@ -1,0 +1,19 @@
+  <div class="uk-card uk-card-default">
+    <div class="uk-card-media-top uk-text-center">
+      
+      <a class="uk-navbar-item uk-logo" routerLink="/product-details/{{product.id}}">
+        <img href="" src="{{ product.image! }}" height="150" width="150" class="uk-margin-small-top uk-border-circle" alt="">
+      </a>
+      
+    </div>
+    <div class="uk-card-body uk-text-center">
+      <h3 class="uk-card-title">{{ product.price/100 | currency: 'BRL' }}</h3>
+      <p style="height: 50px;">
+        {{ product.title }}
+      </p>
+      <button class="uk-button uk-button-default uk-button-large uk-width-1-1" >
+        <span class="uk-icon uk-margin-small-right" uk-icon="icon: cart"></span>
+        Adicionar
+      </button>
+    </div>
+  </div>
