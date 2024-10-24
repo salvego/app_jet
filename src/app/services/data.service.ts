@@ -9,7 +9,7 @@ import { map } from 'rxjs';
 export class DataService {
 
 
-    public url = 'https://localhost:7008/v1';
+    public url = 'https://api-jet.onrender.com/v1';
 
     constructor(private http: HttpClient) { }
 
